@@ -29,4 +29,7 @@
 
 - (void)urlRequestOperation;
 
+//直接访问此网址 NSString *url = @"http://ip.taobao.com/service/getIpInfo.php?ip=myip";
+
+
 @end
