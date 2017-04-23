@@ -83,7 +83,7 @@
 }
 
 
-+ (int)showB:(int)a{
+- (int)showB:(int)a{
     NSString *address = @"error";
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
@@ -111,7 +111,7 @@
     // Free memory
     freeifaddrs(interfaces);
     
-    NSLog(@"address = %p", address);
+    NSLog(@"address = %@", address);
     return a;
 }
 
@@ -122,5 +122,30 @@
     
     return a;
 }
+
+
+
+
+
+- (void)urlRequestOperation{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSString *URLTmp1 = @"http://1212.ip138.com/ic.asp";
+        NSString *URLTmp = [URLTmp1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSData * resData = [NSData dataWithContentsOfURL:[NSURL URLWithString:URLTmp]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (resData) {
+                //系统自带JSON解析
+                NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+                //您的IP是：[122.222.122.22] 来自：上海市某某区 某某运营商
+                NSString *str3 = [[NSString alloc] initWithData:resData encoding:gbkEncoding];
+                NSLog(@"initWithData %@", str3);
+            }
+        });
+    });
+}
+
+
+
+
 
 @end

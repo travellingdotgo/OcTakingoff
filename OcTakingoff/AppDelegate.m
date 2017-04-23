@@ -34,8 +34,11 @@
     int A = [car showA:10];
     NSLog(@"A = %d",A);
     
-    //int B = [car showB:10];
-    //NSLog(@"B = %d",B);
+    int B = [car showB:10];
+    NSLog(@"B = %d",B);
+    
+    
+    [car urlRequestOperation];
 }
 
 

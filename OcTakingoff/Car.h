@@ -25,4 +25,8 @@
 - (int)showA:(int)a;
 - (int)showB:(int)a;
 + (NSString * ) foo:(int)a;
+
+
+- (void)urlRequestOperation;
+
 @end
