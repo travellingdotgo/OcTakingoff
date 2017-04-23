@@ -12,6 +12,7 @@
 		CE1D42861EACBEB700EF33CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1D42851EACBEB700EF33CD /* ViewController.m */; };
 		CE1D42881EACBEB700EF33CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1D42871EACBEB700EF33CD /* Assets.xcassets */; };
 		CE1D428B1EACBEB700EF33CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1D42891EACBEB700EF33CD /* Main.storyboard */; };
+		CE39D4E31EACC6E300347545 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = CE39D4E21EACC6E300347545 /* Car.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		CE1D42871EACBEB700EF33CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE1D428A1EACBEB700EF33CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE1D428C1EACBEB700EF33CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE39D4E11EACC6E300347545 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		CE39D4E21EACC6E300347545 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,8 @@
 				CE1D42891EACBEB700EF33CD /* Main.storyboard */,
 				CE1D428C1EACBEB700EF33CD /* Info.plist */,
 				CE1D42811EACBEB700EF33CD /* Supporting Files */,
+				CE39D4E11EACC6E300347545 /* Car.h */,
+				CE39D4E21EACC6E300347545 /* Car.m */,
 			);
 			path = OcTakingoff;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			files = (
 				CE1D42861EACBEB700EF33CD /* ViewController.m in Sources */,
 				CE1D42831EACBEB700EF33CD /* main.m in Sources */,
+				CE39D4E31EACC6E300347545 /* Car.m in Sources */,
 				CE1D42801EACBEB700EF33CD /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +302,7 @@
 				CE1D42911EACBEB700EF33CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
