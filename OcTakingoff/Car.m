@@ -120,6 +120,7 @@
 
 -(int)showA:(int)a{
     
+    
     return a;
 }
 
@@ -138,7 +139,7 @@
                 NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
                 //您的IP是：[122.222.122.22] 来自：上海市某某区 某某运营商
                 NSString *str3 = [[NSString alloc] initWithData:resData encoding:gbkEncoding];
-                NSLog(@"initWithData %@", str3);
+                NSLog(@"dispatch_async\n%@", str3);
             }
         });
     });
