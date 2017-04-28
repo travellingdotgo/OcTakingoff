@@ -29,7 +29,6 @@
 
     NSString * type = car->_type;
     NSLog(@"type = %d", 2);
-   
     
     int A = [car showA:10];
     NSLog(@"A = %d",A);

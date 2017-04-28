@@ -21,6 +21,10 @@
 #include <netdb.h>
 #import <SystemConfiguration/SCNetworkReachability.h>
 
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import <AppKit/AppKit.h>
+
 
 @implementation Car
 -(void)run
@@ -119,6 +123,7 @@
 
 
 -(int)showA:(int)a{
+    NSLog(@"a = %d", a);
     
     
     return a;
@@ -138,8 +143,12 @@
                 //系统自带JSON解析
                 NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
                 //您的IP是：[122.222.122.22] 来自：上海市某某区 某某运营商
-                NSString *str3 = [[NSString alloc] initWithData:resData encoding:gbkEncoding];
-                NSLog(@"dispatch_async\n%@", str3);
+                NSString *response = [[NSString alloc] initWithData:resData encoding:gbkEncoding];
+                NSLog(@"dispatch_async\n%@", response);
+                
+                NSAlert *alert = [[NSAlert alloc] init];
+                [alert setMessageText:response];
+                [alert runModal];
             }
         });
     });
