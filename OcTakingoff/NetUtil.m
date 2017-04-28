@@ -31,7 +31,7 @@
 
 -(void)run
 {
-    NSLog(@"The  car that has %d wheels is running...", _wheels);
+    NSLog(@"time= %d ...", time);
 }
 
 
@@ -73,11 +73,7 @@
     return address;
 }
 
-- (NSString * ) getPubAddr :(int)a{
-    //urlRequestOperation();
-    
-    return @"ABC";
-}
+
 
 
 
@@ -94,8 +90,33 @@
                 NSString *response = [[NSString alloc] initWithData:resData encoding:gbkEncoding];
                 NSLog(@"dispatch_async\n%@", response);
                 
+                /*
+                 NSAlert *alert = [[NSAlert alloc] init];
+                 [alert setMessageText:response];
+                 [alert runModal];
+                 */
+                
+                
+                NSString *keyword = @"杭州";
+                if ([response containsString:keyword]) {
+                    
+                } else {
+                    time ++;
+                }
+                
+                if(time > 3)
+                {
+                    NSAlert *alert = [[NSAlert alloc] init];
+                    NSString *str = [NSString stringWithFormat:@"> %d, ! hangzhou", time];
+                    [alert setMessageText:str ];
+                    [alert runModal];
+                }
+                
+            }
+            else // no resData
+            {
                 NSAlert *alert = [[NSAlert alloc] init];
-                [alert setMessageText:response];
+                [alert setMessageText:@"no resData"];
                 [alert runModal];
             }
         });
@@ -104,6 +125,13 @@
     NSLog(@"urlRequestOperation exiting");
 }
 
+
+
+- (NSString * ) getPubAddr :(int)a{
+    //urlRequestOperation();
+    
+    return @"ABC";
+}
 
 
 @end

@@ -7,7 +7,8 @@
 
 @interface NetUtil : NSObject
 {
-    int _wheels;
+    int interval_s;
+    int time;
     
 @public
     NSString *_ip;

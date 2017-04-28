@@ -7,25 +7,56 @@
 //
 
 #import "ViewController.h"
-//#import <UIKit/UIKit.h>
-//@import UIKit
+#import "NetUtil.h"
 
 @implementation ViewController
 
+
+NetUtil *netutil;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Do any additional setup after loading the view.
     
-    //UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"title" message:@"message" preferredStyle:UIAlertControllerStyleAlert];
-
+    NSLog(@"viewDidLoad");
+    
+    netutil = [[NetUtil alloc]init];
+    NSString* nicAddr = [netutil getNicAddr:10];
+    NSLog(@"nicAddr = %@",nicAddr);
+    
+    NSString* pubAddr = [netutil getPubAddr:10];
+    NSLog(@"pubAddr = %@",pubAddr);
+    
+    int a = [netutil getA];
+    NSLog(@"getA = %d",a);
+    
+    //初始化一个Invocation对象
+    NSInvocation * invo = [NSInvocation invocationWithMethodSignature:[[self class] instanceMethodSignatureForSelector:@selector(init)]];
+    [invo setTarget:self];
+    [invo setSelector:@selector(timerAction)];
+    NSTimer * timer = [NSTimer timerWithTimeInterval:2 invocation:invo repeats:YES];
+    //加入主循环池中
+    [[NSRunLoop mainRunLoop]addTimer:timer forMode:NSDefaultRunLoopMode];
+    //开始循环
+    [timer fire];
 }
+
+
+- (void)timerAction
+{
+    [netutil urlRequestOperation];
+}
+
 
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
 
     // Update the view, if already loaded.
+    NSLog(@"setRepresentedObject");
+}
+
+-(void)dealloc{
+    NSLog(@"dealloc:%@",[self class]);
 }
 
 
