@@ -107,7 +107,7 @@
                 if(time > 3)
                 {
                     NSAlert *alert = [[NSAlert alloc] init];
-                    NSString *str = [NSString stringWithFormat:@"> %d, ! hangzhou", time];
+                    NSString *str = [NSString stringWithFormat:@"time=%d, ! hangzhou", time];
                     [alert setMessageText:str ];
                     [alert runModal];
                 }
