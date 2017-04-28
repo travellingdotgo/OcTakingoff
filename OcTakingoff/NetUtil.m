@@ -6,7 +6,7 @@
 //  Copyright © 2017 user. All rights reserved.
 //
 
-#import "Car.h"
+#import "NetUtil.h"
 
 
 #import <netinet/in.h>
@@ -26,36 +26,23 @@
 #import <AppKit/AppKit.h>
 
 
-@implementation Car
+
+@implementation NetUtil
+
 -(void)run
 {
-    NSLog(@"The %@ car that has %d wheels is running...", _color, _wheels);
+    NSLog(@"The  car that has %d wheels is running...", _wheels);
 }
 
-+ (void)playMusic
+
+- (int)getA
 {
-
-    NSString *name1 = [[NSString alloc] initWithString:@"zhangsan"];
     
-    //便利构造器创建
-    NSString *name2 = [NSString stringWithString:@"1234567890"];
-    
-    //常用字符串创建 直接创建
-    NSString *name3 = @"1234567890";
-    
-    NSLog(@"music palying...");
+    return 0;
 }
 
-
-+ (void)showIpAddresses
-{
-}
-
-+ (NSString * ) foo {
-    return @"ABC";
-}
-
-+ (NSString *)getIpAddresses:(int)a{
+- (NSString * ) getNicAddr :(int)a{
+    
     NSString *address = @"error";
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
@@ -86,50 +73,11 @@
     return address;
 }
 
-
-- (int)showB:(int)a{
-    NSString *address = @"error";
-    struct ifaddrs *interfaces = NULL;
-    struct ifaddrs *temp_addr = NULL;
-    int success = 0;
-    // retrieve the current interfaces - returns 0 on success
-    success = getifaddrs(&interfaces);
-    if (success == 0)
-    {
-        // Loop through linked list of interfaces
-        temp_addr = interfaces;
-        while(temp_addr != NULL)
-        {
-            if(temp_addr->ifa_addr->sa_family == AF_INET)
-            {
-                // Check if interface is en0 which is the wifi connection on the iPhone
-                if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"])
-                {
-                    // Get NSString from C String
-                    address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
-                }
-            }
-            temp_addr = temp_addr->ifa_next;
-        }
-    }
-    // Free memory
-    freeifaddrs(interfaces);
+- (NSString * ) getPubAddr :(int)a{
+    //urlRequestOperation();
     
-    NSLog(@"address = %@", address);
-    return a;
+    return @"ABC";
 }
-
-
-
-
--(int)showA:(int)a{
-    NSLog(@"a = %d", a);
-    
-    
-    return a;
-}
-
-
 
 
 
@@ -152,9 +100,9 @@
             }
         });
     });
+    
+    NSLog(@"urlRequestOperation exiting");
 }
-
-
 
 
 
